@@ -3,78 +3,701 @@
     <script src="bower_components/handlebars/handlebars.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
-    <link rel="stylesheet" href="http://redbkjamaica.com/events/css/main.css">
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    <script defer src="js/vendor/jquery.flexslider.js"></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>RedBk Events</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
+        
 
   </head>
-
   <body>
 
-							  <script id="entry-template" type="text/x-handlebars-template">
-        <div class="col-s1">
-          <h4>Other happenings </h4>
-          <ul class="happenings ">                
-             {{#event}}
-              <li class="clearfix">
-                <a href="" class="e-date">
-                  <span class="e-month">{{month}}</span>
-                  <span class="e-day">{{date}}</span>
-                </a>
-                <div class="e-info">
-                  <span  class="e-name"><a href="">{{eventName}}</a></span><br />
-                  <span class="e-cat"><a href="">{{category}}</a></span><br />
-                  <span class="e-venue">{{location}}</span>
+    <script id="entry-template" type="text/x-handlebars-template">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="header-container">
+            <header class="wrapper clearfix">
+                <div class="header-top">
+					<div class="table">
+						<img id="logo" src="images/redbk_logo_small.png" alt="RedBk" />
+						<div id="head-search">
+							<form action="" method="">
+								<input type="text" name="search" placeholder="Search RedBk360 here...">
+								<input type="submit" name="button" value="">
+							</form>
+						</div>
+					</div>
+				</div>
+                <nav>
+					<div class="table">
+						<ul>
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Classifieds</a></li>
+							<li><a href="#">Events</a></li>
+							<li><a href="#">Deals</a></li>
+							<li><a href="#">Articles</a></li>
+						</ul>
+					</div>
+                </nav>
+            </header>
+        </div>
+		<div class="clearfix wrapper sub-links">
+			<ul id="sub-links">
+				<li><a href="#">Sign in</a></li>
+				<li><a href="#">Corporate site</a></li>
+				<li><a href="#">Contact us</a></li>
+				<li><a href="#">About us</a></li>
+			</ul>
+		</div>		
+		 <div id="main-container">
+            <div class="wrapper clearfix">
+				<h1 class="">RedBk Events</h1>
+				
+				<!--  
+					Left Side
+				-->
+				<div class="col-2">
+					<!-- FEATURED SLIDER -->
+					<div id="feat-slider">
+						<div class="table">
+							<ul class="slides">
+								<li>
+									<img src="images/slides/featured/west_affair.jpg" />
+									<div class="feat-overview">
+										<span class="line1"><a class="e-name" href="">West Affair</a>&nbsp;<a class="e-cat" href="">in Parties</a></span>
+										<span class="e-venue">Negril</span>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/featured/ati.jpg" />
+									<div class="feat-overview">
+										<span class="line1"><a class="e-name" href="">ATI Dream Weekend</a>&nbsp;<a class="e-cat" href="">in Parties</a></span>
+										<span class="e-venue">Negril</span>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/featured/gun.jpg" />
+									<div class="feat-overview">
+										<span class="line1"><a class="e-name" href="">Kingston LAN Fest</a>&nbsp;<a class="e-cat" href="">in LAN Parties</a></span>
+										<span class="e-venue">Techno Center</span>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/featured/fishing.jpg" />
+									<div class="feat-overview">
+										<span class="line1"><a class="e-name" href="">Lumot Lake: Island Fishing Tournament</a>&nbsp;<a class="e-cat" href="">in Fishing</a></span>
+										<span class="e-venue">Lumot Lake</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					
+					<!-- Responsive - @media screen and (max-width:768px)
+						- Category Drop List and Add your event button -->
+					<div class="mid-block clearfix">
+						<div id="cat-drop">
+							<select>
+								<option value="">Browse Categories &raquo;</option>
+								<option value="">Arts &amp; Entertainment</option>
+								<option value="">Education</option>
+								<option value="">Live Shows</option>
+								<option value="">Sports</option>
+								<option value="">Food</option>
+								<option value="">Technology</option>
+							</select>
+						</div>
+					</div>
+					<!-- End responsive -->
+						
+					<!-- STANDARD SLIDER -->
+					<div id="stand-slider">
+						<div class="flexslider carousel">
+						  <ul class="slides">
+								<li>
+									<img src="images/slides/standard/met_opera.jpg" />
+									<div class="e-overview">
+										<a href="" class="e-date">
+											<span class="e-month">Apr</span>
+											<span class="e-day">24</span>
+										</a>
+										<div class="e-info">
+											<a class="e-name" href="">MET OPERA Live</a> <br />
+											<a class="e-cat" href="">Live Shows</a> <br />
+											<span class="e-venue">Dover raceway</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/standard/fashion.jpg" />
+									<div class="e-overview">
+										<a href="" class="e-date">
+											<span class="e-month">June</span>
+											<span class="e-day">12</span>
+										</a>
+										<div class="e-info">
+											<a class="e-name" href="">Stush</a> <br />
+											<a class="e-cat" href="">Party</a> <br />
+											<span class="e-venue">Dover raceway</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/standard/6side.jpg" />
+									<div class="e-overview">
+										<a href="" class="e-date">
+											<span class="e-month">June</span>
+											<span class="e-day">1</span>
+										</a>
+										<div class="e-info">
+											<a class="e-name" href="">RedBk 6 A-Side Football Competition</a> <br />
+											<a class="e-cat" href="">Sports</a> <br />
+											<span class="e-venue">Dover raceway</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/standard/football.jpg" />
+									<div class="e-overview">
+										<a href="" class="e-date">
+											<span class="e-month">Apr</span>
+											<span class="e-day">24</span>
+										</a>
+										<div class="e-info">
+											<a class="e-name" href="">MET OPERA Live</a> <br />
+											<a class="e-cat" href="">Live Shows</a> <br />
+											<span class="e-venue">Dover raceway</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/standard/met_opera.jpg" />
+									<div class="e-overview">
+										<a href="" class="e-date">
+											<span class="e-month">Apr</span>
+											<span class="e-day">24</span>
+										</a>
+										<div class="e-info">
+											<a class="e-name" href="">MET OPERA Live</a> <br />
+											<a class="e-cat" href="">Live Shows</a> <br />
+											<span class="e-venue">Dover raceway</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/standard/fashion.jpg" />
+									<div class="e-overview">
+										<a href="" class="e-date">
+											<span class="e-month">June</span>
+											<span class="e-day">12</span>
+										</a>
+										<div class="e-info">
+											<a class="e-name" href="">Stush</a> <br />
+											<a class="e-cat" href="">Party</a> <br />
+											<span class="e-venue">Dover raceway</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/standard/6side.jpg" />
+									<div class="e-overview">
+										<a href="" class="e-date">
+											<span class="e-month">June</span>
+											<span class="e-day">1</span>
+										</a>
+										<div class="e-info">
+											<a class="e-name" href="">RedBk 6 A-Side Football Competition</a> <br />
+											<a class="e-cat" href="">Sports</a> <br />
+											<span class="e-venue">Dover raceway</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<img src="images/slides/standard/football.jpg" />
+									<div class="e-overview">
+										<a href="" class="e-date">
+											<span class="e-month">Apr</span>
+											<span class="e-day">24</span>
+										</a>
+										<div class="e-info">
+											<a class="e-name" href="">MET OPERA Live</a> <br />
+											<a class="e-cat" href="">Live Shows</a> <br />
+											<span class="e-venue">Dover raceway</span>
+										</div>
+									</div>
+								</li>
+						  </ul>
+						</div>
+					</div>                   
+                    <div class="clearfix">
+                        <div class="col-s1">
+                            <h4>Other happenings </h4>
+                            <ul class="happenings ">                
+                                {{#otherHappenings}}
+                                <li class="clearfix">
+                                    <a href="" class="e-date">
+                                        <span class="e-month">{{month}}</span>
+                                        <span class="e-day">{{date}}</span>
+                                    </a>
+                                    <div class="e-info">
+                                        <span  class="e-name"><a href="">{{eventName}}</a></span><br />
+                                        <span class="e-cat"><a href="">{{category}}</a></span><br />
+                                        <span class="e-venue">{{location}}</span>
+                                    </div>
+
+                                </li>   
+
+                                {{/otherHappenings}}
+
+                            </ul>
+                            <a href="" class="link bold blue size12">More Happenings &raquo;</a>							
+                        </div>  
+                        <!-- Coming Soon Area -->
+                        <div class="col-s2">
+                        <h4>Coming Soon</h4>
+                        <ul class="coming">
+                                {{#comingSoon}}
+                                <li class="clearfix">
+                                <a href="" class="thumb"><img src="images/thumbs/{{thumb}}"></a>
+                                <div class="e-info">
+                                    <span class="e-name"><a href="">{{eventName}}</a></span><br />
+                                    <span class="e-cat"><a href="">{{category}}</a></span><br />
+                                    <span class="e-note">{{month}} {{date}}</span><br/>
+                                    <span class="e-note">More infomration coming soon</span>
+                                </div>
+
+                                </li>   
+
+                                {{/comingSoon}}
+
+                        </ul>
+                        <a href="" class="link bold blue size12">View more &raquo;</a>
+                        </div>
+                    </div>
                 </div>
 
-                </li>   
+                <!--Right Side-->
+                <div class="col-1">
+                    <div class="browse-box clearfix no-show">
+                        <span class="seperator clearfix">
+                            <h5 class="left">Browse Categories</h5>
+                            <a href="" class="link blue size12 right">All Events</a>
+                        </span>
 
-                {{/event}}
+                        <!-- Category Lists -->
+                        {{#level1Cat}}
+                        <ul class="lvl1">
+                            <li>
+                                <a href="">{{category}}</a>
+                                <ul class="lvl2">
+                                    {{#categoryChildren}}
+                                    <li><a href="">{{categoryChild}}</a></li>
+                                    {{/categoryChildren}}
+                                </ul>
+                            </li>
+                        </ul>                        
+                        {{/level1Cat}}
 
-              </ul>
-							
-						</div>                  
-                  <a href="" class="link bold blue size12">More Happenings &raquo;</a>
-                </script>
+                        <br />
+                        <!-- Time Filter options -->
+                        <span class="seperator clear-both mt-20">
+                            <h5>Filter Events</h5>
+                        </span>
+                        <ul class="lvl2 list-pairs clearfix">
+                            <li><a href="">Today</a></li>
+                            <li><a href="">This month</a></li>
+                            <li><a href="">This weekend</a></li>
+                            <li><a href="">This week</a></li>
+                            <li><a href="">All Events</a></li>
+                        </ul>
+                    </div>
+                    <!-- END Browse box -->					
+                    <div id="action-call" class="med-rec"><a href=""><img src="images/add_event_btn.jpg" /></a></div>
+
+                    <!-- Medium rectangles -->
+                    <div class="clearfix">
+                        <div class="med-rec"><img src="images/sampleads/noa.jpg" class="mt-20" /></div>
+                        <div class="med-rec"><img src="images/sampleads/marley.jpg" class="mt-20"/></div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <!-- End main container -->
+
+        <br />
+        <!-- Start Footer Area -->
+        <div id="footer-area" class="clear-left">
+            <div id="footer" class="clear-left wrapper">
+                <div id="footer-top" class="clearfix">
+                    <div class="mr-10">
+                        <h4>About RedBk</h4>
+                        <ul>
+                            <li><a id="A2" href="http://redbkjamaica.com/contact.php" target="_blank" runat="server">Contact us</a></li>
+                            <li><a id="A3" href="~/conditions.aspx" runat="server">Conditions of use</a></li>
+                            <li><a id="A4" href="~/privacy.aspx" runat="server">Privacy Policy</a></li>
+                            <li><a href="http://redbkjamaica.com/agents_and_locations.php" class="">Dealer Locations</a></li>
+                            <li><a href="mailto:webmaster@redbkgroup.com" target="_blank">Report errors</a></li>
+                        </ul>
+                    </div>
+                    <div class="mr-10">
+                        <h4>Advertise</h4>
+                        <ul>
+                            <li><a href="">Classifieds</a></li>
+                            <li><a href="">Events</a></li>
+                            <li><a href="">Deals</a></li>
+                            <li><a href="">Articles &amp; Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="mr-10">
+                        <h4>Trading Partners</h4>
+                        <ul>
+                            <li><a href="http://www.digiceljamaica.com/en/retailers/index.php" target="_blank">Digicel Jamaica Limited (Dealer Channel)</a></li>
+                            <li><a href="https://www.billexpressonline.com/" class="">Bill Express Payment Centres</a></li>
+                            <li><a href="http://anbell.net/agencies/index.html" target="_blank">Anbell Trade Exchange/ Anbell Multimedia</a></li>
+                            <li><a href="http://www.redbk360.com/ListingDetails/Airtime+Jamaica+Ltd" target="_blank">Airtime Jamaica Limited</a></li>
+                            <li><a href="http://www.redbk360.com/ListingDetails/FIMI+Wireless" target="_blank">FIMI Wireless</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="clear-left">
+                    </div>
+                </div>
+                <div id="footer-bottom" class="clearfix">
+                    <div class="left">
+                        <p> Copyright &copy; 2012 RedBk Jamaica Ltd. All rights reserved</p>
+                        <ul>
+                            <li><a href="http://redbkjamaica.com/home.php" class="pl-x">Corporate site</a></li>
+                            <li><a href="http://redbkjamaica.com/get_listed.php" target="_blank">Advertise</a></li>
+                            <li><a href="http://redbkjamaica.com/contact.php" target="_blank">Contact us</a></li>
+                            <li><a href="http://redbkjamaica.com/company_profile.php" target="_blank" class="no-border">About us</a></li>
+                        </ul>
+                    </div>
+                    <div class="social-icon-box right">
+                        <a href="http://www.facebook.com/RedBkJA" target="_blank"><img src="images/icons/Facebook.png" alt="facebook icon" title="Facebook"></a>
+                        <a href="https://twitter.com/#!/redbkjamaica" target="_blank"><img src="images/icons/Twitter.png" alt="twitter icon" title="twitter"></a>
+                        <a href="http://www.youtube.com/redbkjm" target="_blank"><img src="images/icons/YouTube.png" alt="youtube icon" title="youtube"></a>
+                    </div>
+                    <div class="clear-both"></div>
+                </div>
+            </div>
+        </div>                            
+        
+    </script>
 
 
 
 						
 
   </body>
-  <script>
 
+    <script>
+        
+    //get current day
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(dd<10) {
+        dd='0'+dd
+    } 
+
+    if(mm<10) {
+        mm='0'+mm
+    } 
+
+    today = 'month='+mm+'/date='+dd+'/year='+yyyy;        
+    //console.log(today );   
+        var keyParser1 = window.location.href.split('#');
+        if(keyParser1.length <= 1){
+             window.location = '#'+today;
+        }
+   
     
+    
+        
+        
+    var keyParser1 = window.location.href.split('#');
+    var keyParser2 = keyParser1[1].split('/') 
+    
+    var key = new Array();
+    var keyCount = 0;
+    for(var i = 0; i < keyParser2.length; i ++){
+        if(typeof keyParser2[i].split('=')[1] !== 'undefined'){
+            key[keyParser2[i].split('=')[0].toLowerCase()] = keyParser2[i].split('=')[1].toLowerCase()
+            keyCount++;
+        }
+    }
+        console.log("keyCount: "+ keyCount);
+      
+
+        
+
+
+
     // Get a database reference 
+    var data = {};
     var ref =  new Firebase('https://eventstest.firebaseio.com/');
-        var data = {event:[]};
+    
     // Attach an asynchronous callback to read the data at our posts reference
     ref.on("value", function(snapshot) {
-      //console.log(snapshot.val().length);
+        
+        
+      //pulls & validates events of desired type from firebase based on handlebar tag
+      validateEvents('otherHappenings',snapshot,3)    
+      validateEvents('comingSoon',snapshot,2)   
+      
+      popCat('level1Cat',snapshot);
+      popCat('level1Cat',snapshot);    
+        
+      
 
-      //populate events
-      for(var i = 0; i < snapshot.val().length; i++){
-        data['event'][i] =new Object
-        data['event'][i].eventName = snapshot.val()[i].eventName;
-        data['event'][i].month = snapshot.val()[i].month;
-        data['event'][i].date = snapshot.val()[i].date;
-        data['event'][i].category = snapshot.val()[i].category;
-        data['event'][i].location = snapshot.val()[i].location;
-      }
-     
+      
+      
+      
+      console.log(data);
       loadTemp();
 
 
     }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
     });
-    
+    //loadTemp();
     //inject event data
     function loadTemp(){
+        
+        
+        
+
+        
     var source   = $("#entry-template").html();
     var template = Handlebars.compile(source);
     var context =  data
-    console.log(context);
+
     var html    = template(context)   
     $(document.body).append (html);
+        
+    // sliders
+    $('.flexslider').flexslider({
+                animation: "slide",
+                animationLoop: true,
+                itemWidth: 260,
+                /* itemMargin: 50, */
+                minItems: 1,
+                maxItems: 2,
+                move: 2,
+                pauseOnHover: true, 
+                controlNav: true,               //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
+                directionNav: true,             //Boolean: Create navigation for previous/next navigation? (true/false)
+                prevText: "Previous",           //String: Set the text for the "previous" directionNav item
+                nextText: "Next", 
+                start: function(slider){
+                  $('body').removeClass('loading');
+                }
+              }); 
+        $('#feat-slider').flexslider({
+            nextText: "Next",
+            animation: "slide",
+            itemWidth: 620,
+            start: function(slider){
+              $('body').removeClass('loading');
+            }
+        });        
+        width = $(document).width();
+        if (width <= 768) {
+            $('#action-call').insertAfter($('#cat-drop'));
+        }        
     }
-  </script> 
+    </script> 
+  
+    <script type="text/javascript">
+
+        //Shift Call to action button on screen resize
+        $(window).resize(function() {
+            // Check here the width
+            width = $(document).width();
+            if (width <= 802) {
+                $('#action-call').insertAfter($('#cat-drop'));
+            }
+            if (width > 802) {
+                $('#action-call').insertAfter($('.browse-box'));
+            }
+
+            /* if (width < 481){
+                $('nav').insertAfter($('header'));
+            }
+            if (width > 480){
+                $('nav').insertAfter($('.header-top'));
+            } */
+        });
+        function popCat(catLevel,snapshot){
+            if(typeof data[catLevel] === 'undefined'){
+                data[catLevel] =[];
+                data[catLevel].lengthVal = 0;                 
+            }
+          for(var i = 0; i < snapshot.val().length; i++){
+
+
+              var ctrl = true;
+              for(var h = 0; h < data[catLevel].lengthVal;h++ ){
+                  console.log(data[catLevel][h].category + "   "+ snapshot.val()[i].category+ "   " +data[catLevel][h].category.indexOf(snapshot.val()[i].category));
+                  if(data[catLevel][h].category.indexOf(snapshot.val()[i].category) == 0){
+                      ctrl = false;
+                      var subCat = snapshot.val()[i].categoryChild.split('-');
+                      //data[catLevel][h].categoryChildren = []
+                      for(var key = 0; key < subCat.length; key++ ){
+                          var childCtrl = true;
+                          for(var count =0; count < data[catLevel][h].numofChildren; count++){
+                              if(data[catLevel][h].categoryChildren[count].categoryChild.indexOf(subCat[key]) == 0){
+                                  childCtrl = false;
+                              }
+                          }
+                          if(childCtrl){
+                              data[catLevel][h].categoryChildren[data[catLevel][h].numofChildren] = new Object
+                              data[catLevel][h].categoryChildren[data[catLevel][h].numofChildren].categoryChild = subCat[key]
+                              data[catLevel][h].numofChildren++                              
+                          }
+
+                      }                      
+                  }
+
+
+              }           
+              if(ctrl){
+                  data[catLevel][data[catLevel].lengthVal] = new Object
+                  data[catLevel][data[catLevel].lengthVal].category = snapshot.val()[i].category;
+                  var subCat = snapshot.val()[i].categoryChild.split('-');
+                  data[catLevel][data[catLevel].lengthVal].categoryChildren = []
+                  data[catLevel][data[catLevel].lengthVal].numofChildren = 0; 
+                  for(var key = 0; key < subCat.length; key++ ){
+                      data[catLevel][data[catLevel].lengthVal].categoryChildren[key] = new Object
+                      data[catLevel][data[catLevel].lengthVal].categoryChildren[key].categoryChild = subCat[key]
+                      data[catLevel][data[catLevel].lengthVal].numofChildren ++;
+                  }
+                  data[catLevel].lengthVal++;
+              }
+          }
+        }
+        function validateEvents(eventType,snapshot,rank){
+            var month = new Array();
+            month["JAN"]= 1;
+            month["FEB"]= 2;
+            month["MAR"]= 3;
+            month["APR"]= 4;
+            month["MAY"]= 5;
+            month["JUN"]= 6;
+            month["JUL"]= 7;
+            month["AUG"]= 8;
+            month["SEP"]= 9;
+            month["OCT"]= 10;
+            month["NOV"]= 11;
+            month["DEC"]= 12;        
+
+
+
+            
+           
+          //populate events
+          for(var i = 0; i < snapshot.val().length; i++){
+
+
+   
+              
+              for(var j = 0; j < keyCount; j++){
+                  console.log('----loop '+i+'.'+j+'----');
+                  //modular checks
+                  var keyPass = false;
+                  //date
+                  if(typeof key['date'] !== 'undefined' && parseInt(key['date']) <= parseInt(snapshot.val()[i].date) ){
+
+                      keyPass = true;
+                      console.log('date keyPass value set True ')
+                  }
+                  else if(typeof key['date'] !== 'undefined'){
+                      keyPass = false;
+                      console.log('date keyPass value set False ')
+                  }    
+
+                  //month
+                  if( typeof key['month'] !== 'undefined' && parseInt(key['month']) <= parseInt(month[snapshot.val()[i].month.toUpperCase()])){
+                      keyPass = true;
+                      console.log('month keyPass value set True ')
+                  }
+                  else if(typeof key['month'] !== 'undefined'){
+                      keyPass = false;
+                      console.log('month keyPass value set False ')
+                  }
+
+                  //location
+
+                  if(typeof key['location'] !== 'undefined' && snapshot.val()[i].location.indexOf(key['location']) > -1){
+                      keyPass = true;
+                      console.log('location keyPass value set True ')
+                  }
+                  else if(typeof key['location'] !== 'undefined'){
+                      keyPass = false;
+                      console.log('location keyPass value set False ')
+                  }              
+
+                  //category
+                  if(typeof key['category'] !== 'undefined' && snapshot.val()[i].category.indexOf(key['category']) > -1){
+
+                      keyPass = true;
+                      console.log('category keyPass value set True ')
+                  }
+                  else if(typeof key['category'] !== 'undefined'){
+                     keyPass = false;
+                    console.log('category keyPass value set False ')
+                  }  
+
+                  //eventName
+                  if(typeof key['eventname'] !== 'undefined' && snapshot.val()[i].eventName.indexOf(key['eventname']) > -1){
+                      keyPass = true;
+                      console.log('eventName keyPass value set False ')
+                  }
+                  else if(typeof key['eventname'] !== 'undefined'){
+                     keyPass = false;
+                      console.log('eventName keyPass value set False ')
+                  }     
+                  //event type
+                  if(rank !== parseInt(snapshot.val()[i].eventType)){
+                      keyPass = false;
+                      console.log('event Type keyPass value set False ')
+                  }
+                  
+                  console.log('keyPass: '+keyPass)
+                  console.log('-----------------')
+
+                  if(keyPass){
+                      if(typeof data[eventType] === 'undefined'){
+                          data[eventType] = [];
+                      }
+                    data[eventType][i] =new Object
+                    data[eventType][i].eventName = snapshot.val()[i].eventName;
+                    data[eventType][i].month = snapshot.val()[i].month;
+                    data[eventType][i].date = snapshot.val()[i].date;
+                    data[eventType][i].category = snapshot.val()[i].category;
+                    data[eventType][i].location = snapshot.val()[i].location;
+                    data[eventType][i].thumb = snapshot.val()[i].thumb;  
+                  }
+
+
+              }
+
+
+          }            
+        }
+    </script>    
 </html>

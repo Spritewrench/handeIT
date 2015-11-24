@@ -1,0 +1,63 @@
+/*Droid Sans*/
+@font-face {
+    font-family: 'DroidSansRegular';
+    src: url('fonts/DroidSans-webfont.eot');
+    src: url('fonts/DroidSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/DroidSans-webfont.woff') format('woff'),
+         url('fonts/DroidSans-webfont.ttf') format('truetype'),
+         url('fonts/DroidSans-webfont.svg#DroidSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'DroidSansBold';
+    src: url('fonts/DroidSans-Bold-webfont.eot');
+    src: url('fonts/DroidSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/DroidSans-Bold-webfont.woff') format('woff'),
+         url('fonts/DroidSans-Bold-webfont.ttf') format('truetype'),
+         url('fonts/DroidSans-Bold-webfont.svg#DroidSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+/************ END Droid SANS ***************************************************/
+
+/* Font Face CuprumFFU Font*/
+@font-face {
+    font-family: 'CuprumFFURegular';
+    src: url('fonts/Cuprum-webfont.eot');
+    src: url('fonts/Cuprum-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Cuprum-webfont.woff') format('woff'),
+         url('fonts/Cuprum-webfont.ttf') format('truetype'),
+         url('fonts/Cuprum-webfont.svg#CuprumFFURegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*PT Sans Narrow*/
+@font-face {
+    font-family: 'PTSansNarrowRegular';
+    src: url('fonts/PTN57F-webfont.eot');
+    src: url('fonts/PTN57F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/PTN57F-webfont.woff') format('woff'),
+         url('fonts/PTN57F-webfont.ttf') format('truetype'),
+         url('fonts/PTN57F-webfont.svg#PTSansNarrowRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*PT Sans Italic*/
+@font-face {
+    font-family: 'PTSansBoldItalic';
+    src: url('fonts/PTS76F-webfont.eot');
+    src: url('fonts/PTS76F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/PTS76F-webfont.woff') format('woff'),
+         url('fonts/PTS76F-webfont.ttf') format('truetype'),
+         url('fonts/PTS76F-webfont.svg#PTSansBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
