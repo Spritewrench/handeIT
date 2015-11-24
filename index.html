@@ -79,34 +79,16 @@
 					<div id="feat-slider">
 						<div class="table">
 							<ul class="slides">
+							    
+								{{#featSlider}}
 								<li>
-									<img src="images/slides/featured/west_affair.jpg" />
+									<img src="images/slides/featured/{{slide}}" />
 									<div class="feat-overview">
-										<span class="line1"><a class="e-name" href="">West Affair</a>&nbsp;<a class="e-cat" href="">in Parties</a></span>
-										<span class="e-venue">Negril</span>
+										<span class="line1"><a class="e-name" href="details.html#eventName='{{eventName}}'">{{eventName}}</a>&nbsp;<a class="e-cat" href="">{{category}}</a></span>
+										<span class="e-venue">{{location}}</span>
 									</div>
 								</li>
-								<li>
-									<img src="images/slides/featured/ati.jpg" />
-									<div class="feat-overview">
-										<span class="line1"><a class="e-name" href="">ATI Dream Weekend</a>&nbsp;<a class="e-cat" href="">in Parties</a></span>
-										<span class="e-venue">Negril</span>
-									</div>
-								</li>
-								<li>
-									<img src="images/slides/featured/gun.jpg" />
-									<div class="feat-overview">
-										<span class="line1"><a class="e-name" href="">Kingston LAN Fest</a>&nbsp;<a class="e-cat" href="">in LAN Parties</a></span>
-										<span class="e-venue">Techno Center</span>
-									</div>
-								</li>
-								<li>
-									<img src="images/slides/featured/fishing.jpg" />
-									<div class="feat-overview">
-										<span class="line1"><a class="e-name" href="">Lumot Lake: Island Fishing Tournament</a>&nbsp;<a class="e-cat" href="">in Fishing</a></span>
-										<span class="e-venue">Lumot Lake</span>
-									</div>
-								</li>
+								{{/featSlider}}
 							</ul>
 						</div>
 					</div>
@@ -331,12 +313,17 @@
     today = 'month='+mm+'/date='+dd+'/year='+yyyy;        
     //console.log(today );   
         var keyParser1 = window.location.href.split('#');
-        if(keyParser1.length <= 1){
-             //window.location = '#';
-        }        
-        var holder = keyParser1[1];
-        if(keyParser1[1].indexOf('month='+mm) > -1 || keyParser1[1].indexOf('date='+dd) > -1 || keyParser1[1].indexOf('year='+yyyy) > -1){
-            window.location = '#'+today
+        if(true){
+             window.location = '#'+today
+            
+        }  
+        var holder = ''
+        if(typeof keyParser1[1] !== 'undefined'){
+                holder = keyParser1[1];
+        }
+        
+        if((typeof keyParser1[1] !== 'undefined') && (keyParser1[1].indexOf('month='+mm) > -1 || keyParser1[1].indexOf('date='+dd) > -1 || keyParser1[1].indexOf('year='+yyyy) > -1) ){
+            //window.location = '#'+today
         }
         else{
             window.location = '#'+today+'/'+holder
@@ -377,6 +364,7 @@
       validateEvents('otherHappenings',snapshot,3)    
       validateEvents('comingSoon',snapshot,2)   
       validateEvents('standardSlides',snapshot,1)  
+      validateEvents('featSlider',snapshot,0)  
       popCat('level1Cat',snapshot);
       popCat('level1Cat',snapshot);    
         
@@ -615,7 +603,10 @@
                       keyPass = false;
                       console.log('event Type keyPass value set False: '+ snapshot.val()[i].eventType)
                   }
-                  
+                  //if featured always visible
+                  if(snapshot.val()[i].eventType == 0 && rank == 0){
+                      keyPass = true;
+                  }
                   console.log('keyPass: '+keyPass)
                   console.log('-----------------')
 
