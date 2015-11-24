@@ -1,4 +1,4 @@
-http://redbkjamaica.com/events/css/main.css/**
+/**
 * reset browser defaults
 ----------------------------------*/
 body,div,dl,dt,dd,ul,ol,
@@ -1244,5 +1244,3 @@ nav a:hover {
         page-break-after: avoid;
     }
 }
-
-

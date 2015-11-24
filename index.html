@@ -1,4 +1,10 @@
-<html>
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
   <head>
     <script src="bower_components/handlebars/handlebars.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
@@ -126,118 +132,22 @@
 					<div id="stand-slider">
 						<div class="flexslider carousel">
 						  <ul class="slides">
+                              {{#standardSlides}}
 								<li>
-									<img src="images/slides/standard/met_opera.jpg" />
+									<img src="images/slides/standard/{{slide}}" />
 									<div class="e-overview">
 										<a href="" class="e-date">
-											<span class="e-month">Apr</span>
-											<span class="e-day">24</span>
+											<span class="e-month">{{month}}</span>
+											<span class="e-day">{{date}}</span>
 										</a>
 										<div class="e-info">
-											<a class="e-name" href="">MET OPERA Live</a> <br />
-											<a class="e-cat" href="">Live Shows</a> <br />
-											<span class="e-venue">Dover raceway</span>
+											<a class="e-name" href="">{{eventName}}</a> <br />
+											<a class="e-cat" href="">{{category}}</a> <br />
+											<span class="e-venue">{{location}}</span>
 										</div>
 									</div>
 								</li>
-								<li>
-									<img src="images/slides/standard/fashion.jpg" />
-									<div class="e-overview">
-										<a href="" class="e-date">
-											<span class="e-month">June</span>
-											<span class="e-day">12</span>
-										</a>
-										<div class="e-info">
-											<a class="e-name" href="">Stush</a> <br />
-											<a class="e-cat" href="">Party</a> <br />
-											<span class="e-venue">Dover raceway</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<img src="images/slides/standard/6side.jpg" />
-									<div class="e-overview">
-										<a href="" class="e-date">
-											<span class="e-month">June</span>
-											<span class="e-day">1</span>
-										</a>
-										<div class="e-info">
-											<a class="e-name" href="">RedBk 6 A-Side Football Competition</a> <br />
-											<a class="e-cat" href="">Sports</a> <br />
-											<span class="e-venue">Dover raceway</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<img src="images/slides/standard/football.jpg" />
-									<div class="e-overview">
-										<a href="" class="e-date">
-											<span class="e-month">Apr</span>
-											<span class="e-day">24</span>
-										</a>
-										<div class="e-info">
-											<a class="e-name" href="">MET OPERA Live</a> <br />
-											<a class="e-cat" href="">Live Shows</a> <br />
-											<span class="e-venue">Dover raceway</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<img src="images/slides/standard/met_opera.jpg" />
-									<div class="e-overview">
-										<a href="" class="e-date">
-											<span class="e-month">Apr</span>
-											<span class="e-day">24</span>
-										</a>
-										<div class="e-info">
-											<a class="e-name" href="">MET OPERA Live</a> <br />
-											<a class="e-cat" href="">Live Shows</a> <br />
-											<span class="e-venue">Dover raceway</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<img src="images/slides/standard/fashion.jpg" />
-									<div class="e-overview">
-										<a href="" class="e-date">
-											<span class="e-month">June</span>
-											<span class="e-day">12</span>
-										</a>
-										<div class="e-info">
-											<a class="e-name" href="">Stush</a> <br />
-											<a class="e-cat" href="">Party</a> <br />
-											<span class="e-venue">Dover raceway</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<img src="images/slides/standard/6side.jpg" />
-									<div class="e-overview">
-										<a href="" class="e-date">
-											<span class="e-month">June</span>
-											<span class="e-day">1</span>
-										</a>
-										<div class="e-info">
-											<a class="e-name" href="">RedBk 6 A-Side Football Competition</a> <br />
-											<a class="e-cat" href="">Sports</a> <br />
-											<span class="e-venue">Dover raceway</span>
-										</div>
-									</div>
-								</li>
-								<li>
-									<img src="images/slides/standard/football.jpg" />
-									<div class="e-overview">
-										<a href="" class="e-date">
-											<span class="e-month">Apr</span>
-											<span class="e-day">24</span>
-										</a>
-										<div class="e-info">
-											<a class="e-name" href="">MET OPERA Live</a> <br />
-											<a class="e-cat" href="">Live Shows</a> <br />
-											<span class="e-venue">Dover raceway</span>
-										</div>
-									</div>
-								</li>
+								{{/standardSlides}}
 						  </ul>
 						</div>
 					</div>                   
@@ -303,7 +213,7 @@
                                 <a href="">{{category}}</a>
                                 <ul class="lvl2">
                                     {{#categoryChildren}}
-                                    <li><a href="">{{categoryChild}}</a></li>
+                                    <li><a onclick="location.reload();" href="#categorychild={{categoryChild}}">{{categoryChild}}</a></li>
                                     {{/categoryChildren}}
                                 </ul>
                             </li>
@@ -403,7 +313,7 @@
   </body>
 
     <script>
-        
+        console.log = function() {}
     //get current day
     var today = new Date();
     var dd = today.getDate();
@@ -422,9 +332,17 @@
     //console.log(today );   
         var keyParser1 = window.location.href.split('#');
         if(keyParser1.length <= 1){
-             window.location = '#'+today;
+             //window.location = '#';
+        }        
+        var holder = keyParser1[1];
+        if(keyParser1[1].indexOf('month='+mm) > -1 || keyParser1[1].indexOf('date='+dd) > -1 || keyParser1[1].indexOf('year='+yyyy) > -1){
+            window.location = '#'+today
         }
-   
+        else{
+            window.location = '#'+today+'/'+holder
+        }
+
+        
     
     
         
@@ -458,7 +376,7 @@
       //pulls & validates events of desired type from firebase based on handlebar tag
       validateEvents('otherHappenings',snapshot,3)    
       validateEvents('comingSoon',snapshot,2)   
-      
+      validateEvents('standardSlides',snapshot,1)  
       popCat('level1Cat',snapshot);
       popCat('level1Cat',snapshot);    
         
@@ -552,7 +470,7 @@
 
               var ctrl = true;
               for(var h = 0; h < data[catLevel].lengthVal;h++ ){
-                  console.log(data[catLevel][h].category + "   "+ snapshot.val()[i].category+ "   " +data[catLevel][h].category.indexOf(snapshot.val()[i].category));
+                  //console.log(data[catLevel][h].category + "   "+ snapshot.val()[i].category+ "   " +data[catLevel][h].category.indexOf(snapshot.val()[i].category));
                   if(data[catLevel][h].category.indexOf(snapshot.val()[i].category) == 0){
                       ctrl = false;
                       var subCat = snapshot.val()[i].categoryChild.split('-');
@@ -616,7 +534,7 @@
    
               
               for(var j = 0; j < keyCount; j++){
-                  console.log('----loop '+i+'.'+j+'----');
+                  console.log('----Field: '+eventType+' Rank: '+rank+' loop '+i+'.'+j+'----');
                   //modular checks
                   var keyPass = false;
                   //date
@@ -651,6 +569,27 @@
                       console.log('location keyPass value set False ')
                   }              
 
+                  //child category
+                  var children = snapshot.val()[i].categoryChild.split('-');
+                  var isinChildren = 0 ;
+                  for(var d = 0; d < children.length; d++){
+                      console.log(children[d]+ "  " +key['categorychild']);
+                      if(children[d].indexOf(key['categorychild']) > -1){
+                         isinChildren++; 
+                          
+                      }
+
+                  }
+                  if(typeof key['categorychild'] !== 'undefined' && isinChildren > 0){
+                      keyPass = true;
+                      console.log('category Child keyPass value set True ')                      
+                  }
+                  else if(typeof key['categorychild'] !== 'undefined'){
+                      keyPass = false;
+                      console.log('category Child keyPass value set False ')                          
+                  }
+                  
+                  
                   //category
                   if(typeof key['category'] !== 'undefined' && snapshot.val()[i].category.indexOf(key['category']) > -1){
 
@@ -674,7 +613,7 @@
                   //event type
                   if(rank !== parseInt(snapshot.val()[i].eventType)){
                       keyPass = false;
-                      console.log('event Type keyPass value set False ')
+                      console.log('event Type keyPass value set False: '+ snapshot.val()[i].eventType)
                   }
                   
                   console.log('keyPass: '+keyPass)
@@ -691,6 +630,7 @@
                     data[eventType][i].category = snapshot.val()[i].category;
                     data[eventType][i].location = snapshot.val()[i].location;
                     data[eventType][i].thumb = snapshot.val()[i].thumb;  
+                    data[eventType][i].slide = snapshot.val()[i].slide;    
                   }
 
 
