@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+
+  </head>
+  <style>
+    #color{
+      color: aqua;
+      font-size: 64px;
+      
+    }
+    
+  </style>
+  <body>
+
+							  <script id="entry-template" type="text/x-handlebars-template">
+        <div class="col-s1">
+          <h4>Other happenings </h4>
+          <ul class="happenings ">                
+             {{#event}}
+              <li class="clearfix">
+                <a href="" class="e-date">
+                  <span class="e-month">{{month}}</span>
+                  <span class="e-day">{{date}}</span>
+                </a>
+                <div class="e-info">
+                  <span  class="e-name"><a href="">{{eventName}}</a></span><br />
+                  <span class="e-cat"><a href="">{{category}}</a></span><br />
+                  <span class="e-venue">{{location}}</span>
+                </div>
+
+                </li>   
+
+                {{/event}}
+
+              </ul>
+							
+						</div>                  
+                  <a href="" class="link bold blue size12">More Happenings &raquo;</a>
+                </script>
+
+
+
+						
+
+  </body>
+  <script>
+
+    
+// Get a database reference to our posts
+var ref =  new Firebase('https://eventstest.firebaseio.com/');
+    var data = {event:[]};
+// Attach an asynchronous callback to read the data at our posts reference
+ref.on("value", function(snapshot) {
+  //console.log(snapshot.val().length);
+  
+  
+  for(var i = 0; i < snapshot.val().length; i++){
+    data['event'][i] =new Object
+    data['event'][i].eventName = snapshot.val()[i].eventName;
+    data['event'][i].month = snapshot.val()[i].month;
+    data['event'][i].date = snapshot.val()[i].date;
+    data['event'][i].category = snapshot.val()[i].category;
+    data['event'][i].location = snapshot.val()[i].location;
+  }
+  console.log(data);
+  loadTemp();
+  
+
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+    
+    function loadTemp(){
+    var source   = $("#entry-template").html();
+    var template = Handlebars.compile(source);
+    var test = "michael12323123"; 
+    var context =  data
+    console.log(context);
+    var html    = template(context)   
+    $(document.body).append (html);
+    }
+  </script> 
+</html>
