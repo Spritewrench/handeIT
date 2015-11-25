@@ -33,7 +33,13 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-        <div id="header-container">
+		
+		<!-- Facebook Pluggins -->
+		<!-- Comments Box -->
+		
+		<div id="fb-root"></div>
+
+				<div id="header-container">
             <header class="wrapper clearfix">
                 <div class="header-top">
 					<div class="table">
@@ -69,31 +75,7 @@
 		</div>		
 		 <div id="main-container">
             <div class="wrapper clearfix">
-				<h1 class="">RedBk Events</h1>
-				
-				<!--  
-					Left Side
-				-->
-				<div class="col-2">
-					<!-- FEATURED SLIDER -->
-					<div id="feat-slider">
-						<div class="table">
-							<ul class="slides">
-							    
-								{{#featSlider}}
-								<li>
-									<img src="images/slides/featured/{{slide}}" />
-									<div class="feat-overview">
-										<span class="line1"><a class="e-name" href="details.html#eventName='{{eventName}}'">{{eventName}}</a>&nbsp;<a class="e-cat" href="">{{category}}</a></span>
-										<span class="e-venue">{{location}}</span>
-									</div>
-								</li>
-								{{/featSlider}}
-							</ul>
-						</div>
-					</div>
-					
-					<!-- Responsive - @media screen and (max-width:768px)
+			<!-- Responsive - @media screen and (max-width:768px)
 						- Category Drop List and Add your event button -->
 					<div class="mid-block clearfix">
 						<div id="cat-drop">
@@ -109,76 +91,102 @@
 						</div>
 					</div>
 					<!-- End responsive -->
+				<h1 class="">Event Name Here</h1>
+				<span class="subtle-text" style="margin-top: -5px;">Category name</span>
+				
+				
+				<!--  
+					Left Side
+				-->
+				<div class="col-2">
+					<div id="feat-banner">
+						<img src="images/banner/atifull.jpg" alt="Event Name" title="Event Name"/>
+					</div>
+					
+					<!-- Event Info Section -->
+					<div class="section mt-20 clearfix" >
+						<div id="event-poster">
+							<img src="images/poster/atiposter.jpg" alt="Event name Here" Title="Event name"/>
+							
+							<!-- Facebook like button -->
+							<div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="true"></div>
+							
+							<!-- Place this tag where you want the +1 button to render. -->
+							<div class="g-plusone"></div>
+							<script type="text/javascript">
+							  window.___gcfg = {lang: 'en-GB'};
+
+							  (function() {
+								var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+								po.src = 'https://apis.google.com/js/plusone.js';
+								var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+							  })();
+							</script>
+							<br />
+							<!-- twitter tweet button -->
+							<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+
+
+						</div>
+						<div id="event-info">
+							<h5>ATI Summer Party</h5>
+							<span class="">in <a class="link blue size12"href="#">Parties</a></span>
+							
+							<h5>When</h5>
+							<span class="">Friday July 20, 2013 | 8:00pm</span>
+							
+							<h5>Admission</h5>
+							<span class="">$1200 Presold / $300 at the Gate<br />Ladies Free before 1:00pm</span>
+							
+							<h5>Details</h5>
+							<span class="">Drink Inclusive Season Band<br />
+								$6000 Regular<br />
+								$5000 Pre Sale<br />
+								$4000 Early Bird<br />
+								<br />
+								Boat Cruise is FREE with season bands by reservation only and $1000 without on a first come first serve basis. Boat Cruise is Non inclusive.
+							</span>
+						</div>
+					</div>
+					
+					<!-- Video Section -->
+					<div class="section mt-40 event-video">
+						<iframe width="640" height="360" src="http://www.youtube.com/embed/qUI4CZZcT7A" frameborder="0" allowfullscreen></iframe>
+					</div>
+					
+					<!-- Gallery Section -->
+					<div id="event-gallery" class="section mt-40">
+						<h5 style="width: 100%; moargin-bottom: 3px; border-bottom: 1px solid #CCC; color: #333">Photos</h5>
 						
-					<!-- STANDARD SLIDER -->
-					<div id="stand-slider">
-						<div class="flexslider carousel">
+						<br />
+						<div class="flexslider">
 						  <ul class="slides">
-                              {{#standardSlides}}
-								<li>
-									<img src="images/slides/standard/{{slide}}" />
-									<div class="e-overview">
-										<a href="" class="e-date">
-											<span class="e-month">{{month}}</span>
-											<span class="e-day">{{date}}</span>
-										</a>
-										<div class="e-info">
-											<a class="e-name" href="">{{eventName}}</a> <br />
-											<a class="e-cat" href="">{{category}}</a> <br />
-											<span class="e-venue">{{location}}</span>
-										</div>
-									</div>
-								</li>
-								{{/standardSlides}}
+							<li>
+							  <img src="images/gallery/ati1.jpg" />
+							</li>
+							<li>
+							  <img src="images/gallery/ati2.jpg" />
+							</li>
+							<li>
+							  <img src="images/gallery/ati3.jpg" />
+							</li>
+							<li>
+							  <img src="images/gallery/ati4.jpg" />
+							</li>
 						  </ul>
 						</div>
-					</div>                   
-                    <div class="clearfix">
-                        <div class="col-s1">
-                            <h4>Other happenings </h4>
-                            <ul class="happenings ">                
-                                {{#otherHappenings}}
-                                <li class="clearfix">
-                                    <a href="" class="e-date">
-                                        <span class="e-month">{{month}}</span>
-                                        <span class="e-day">{{date}}</span>
-                                    </a>
-                                    <div class="e-info">
-                                        <span  class="e-name"><a href="">{{eventName}}</a></span><br />
-                                        <span class="e-cat"><a href="">{{category}}</a></span><br />
-                                        <span class="e-venue">{{location}}</span>
-                                    </div>
-
-                                </li>   
-
-                                {{/otherHappenings}}
-
-                            </ul>
-                            <a href="" class="link bold blue size12">More Happenings &raquo;</a>							
-                        </div>  
-                        <!-- Coming Soon Area -->
-                        <div class="col-s2">
-                        <h4>Coming Soon</h4>
-                        <ul class="coming">
-                                {{#comingSoon}}
-                                <li class="clearfix">
-                                <a href="" class="thumb"><img src="images/thumbs/{{thumb}}"></a>
-                                <div class="e-info">
-                                    <span class="e-name"><a href="">{{eventName}}</a></span><br />
-                                    <span class="e-cat"><a href="">{{category}}</a></span><br />
-                                    <span class="e-note">{{month}} {{date}}</span><br/>
-                                    <span class="e-note">More infomration coming soon</span>
-                                </div>
-
-                                </li>   
-
-                                {{/comingSoon}}
-
-                        </ul>
-                        <a href="" class="link bold blue size12">View more &raquo;</a>
-                        </div>
-                    </div>
-                </div>
+						
+					</div>
+					
+					
+					
+					<!-- Comments post Section -->
+					<div class="section mt-40">
+						<h5 style="width: 100%; moargin-bottom: 3px; border-bottom: 1px solid #CCC; color: #333">Comments</h5>
+						<br/>
+						<div class="fb-comments" data-href="http://www.redbk360.com/" data-width="620" data-num-posts="10"></div>
+					</div>
+				</div>
 
                 <!--Right Side-->
                 <div class="col-1">
